@@ -1,0 +1,15 @@
+export default colors = {
+  textPrimary: '#000000',
+  textSecondary: '#7c939f',
+  backgroundPrimary: '#ffffff',
+  backgroundSecondary: '#6200ee',
+  buttonPrimaryBackground: '#6200ee',
+  buttonSecondaryBackground: '#ffffff',
+  buttonErrorBackground: '#FF9494',
+  buttonPrimaryText: '#ffffff',
+  buttonSecondaryText: '#000000',
+  buttonErrorText: '#000000',
+  white: '#ffffff',
+  black: '#000000',
+  gray: '#b8b8b8',
+};
