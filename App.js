@@ -1,5 +1,6 @@
 import { StatusBar } from 'expo-status-bar';
 import { SafeAreaView, StyleSheet } from 'react-native';
+import 'react-native-gesture-handler';
 import Main from './screens/Main';
 
 export default function App() {
