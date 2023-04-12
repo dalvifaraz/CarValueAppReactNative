@@ -1,6 +1,35 @@
 import { StyleSheet } from 'react-native';
+import colors from '../utils/colors';
 
 export const fontStyle = StyleSheet.create({
+  pageHeader: {
+    fontSize: 32,
+    fontFamily: 'System',
+    fontWeight: '500',
+    lineHeight: 34,
+    color: colors.textPrimary,
+  },
+  pageTitle: {
+    fontSize: 24,
+    fontFamily: 'System',
+    fontWeight: '500',
+    lineHeight: 26,
+    color: colors.textPrimary,
+  },
+  pageSubTitle: {
+    fontSize: 22,
+    fontFamily: 'System',
+    fontWeight: '500',
+    lineHeight: 24,
+    color: colors.textSecondary,
+  },
+  helperText: {
+    fontSize: 16,
+    fontFamily: 'System',
+    fontWeight: '500',
+    lineHeight: 18,
+    color: colors.textSecondary,
+  },
   h1: {
     fontSize: 20,
     fontFamily: 'System',

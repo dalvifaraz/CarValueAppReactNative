@@ -8,6 +8,7 @@ export const defaultStyle = StyleSheet.create({
     flex: 1,
     paddingHorizontal: 16,
     backgroundColor: colors.backgroundPrimary,
+    justifyContent: 'center',
   },
   borderRed: {
     borderColor: 'red',
