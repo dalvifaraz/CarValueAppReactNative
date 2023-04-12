@@ -38,7 +38,11 @@ const Button = ({
       onPress={() => {
         handleOnPress();
       }}
-      style={[styles.buttonContainer, buttonContainerStyle]}
+      style={[
+        styles.buttonContainer,
+        buttonContainerStyle,
+        disable && styles.disbale,
+      ]}
     >
       <Text style={[styles.title, titleStyle]}>{title}</Text>
     </Pressable>
@@ -58,6 +62,9 @@ const styles = StyleSheet.create({
     backgroundColor: colors.buttonPrimaryBackground,
   },
   title: {
-    color: colors.textPrimary,
+    color: colors.buttonPrimaryText,
+  },
+  disbale: {
+    opacity: 0.5,
   },
 });
