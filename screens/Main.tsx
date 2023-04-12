@@ -1,19 +1,49 @@
-import { StyleSheet, Text, View } from 'react-native';
+import { Alert, StyleSheet, Text, View } from 'react-native';
 import React from 'react';
 import Button from '../components/Button';
 import colors from '../utils/colors';
 
-const Main = () => {
+const Main = ({ navigation }) => {
+  const [login, setLogin] = React.useState(true);
+
+  const hasUnsavedChanges = Boolean(login);
+
   const handlePress = () => {
     console.log('HELLO WORLD');
   };
+
+  React.useEffect(
+    () =>
+      navigation.addListener('beforeRemove', (e) => {
+        const action = e.data.action;
+        if (!hasUnsavedChanges) {
+          return;
+        }
+
+        e.preventDefault();
+
+        Alert.alert(
+          'Confirmation?',
+          'Are you sure you need to signout and leave the screen?',
+          [
+            {
+              text: 'Sign Out',
+              style: 'destructive',
+              onPress: () => navigation.dispatch(action),
+            },
+            { text: 'Cancel', style: 'cancel', onPress: () => {} },
+          ]
+        );
+      }),
+    [hasUnsavedChanges, navigation]
+  );
 
   return (
     <View style={styles.container}>
       <Button
         title="Primary"
         buttonContainerStyle={{ marginVertical: 8 }}
-        handleOnPress={() => handlePress()}
+        handleOnPress={() => navigation.navigate('UserLogin')}
       />
       <Button
         title="Seconday"
