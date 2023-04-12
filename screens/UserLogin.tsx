@@ -1,20 +1,35 @@
 import { StyleSheet, Text, TextInput, View } from 'react-native';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Button from '../components/Button';
 import { defaultStyle } from '../styles/defaultStyle';
 import colors from '../utils/colors';
 import { fontStyle } from '../styles/fontStyle';
 
 const UserLogin = ({ navigation }) => {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  const [email, setEmail] = useState<string>('');
+  const [password, setPassword] = useState<string>('');
+  const [error, setError] = useState<string>('');
+
+  useEffect(() => {
+    if (email.length || password.length) {
+      setError('');
+    }
+  }, [email, password]);
 
   const handleSignIn = () => {
-    navigation.navigate('UserSignup');
+    if (email.length && password.length) {
+      if (email === 'admin' && password === 'admin') {
+        navigation.navigate('Main');
+      } else {
+        setError('Email/Password Incorrect');
+      }
+    } else {
+      setError('Email/Password Incorrect');
+    }
   };
 
   const handleSignUp = () => {
-    navigation.navigate('ForgetPassword');
+    // navigation.navigate('ForgetPassword');
   };
 
   return (
@@ -32,12 +47,19 @@ const UserLogin = ({ navigation }) => {
         <TextInput
           placeholder="enter password"
           style={styles.input}
+          secureTextEntry
           onChangeText={(password) => setPassword(password)}
           value={password}
         />
-        <Text style={[fontStyle.helperText, { marginBottom: 8 }]}>
+        <Text
+          onPress={() => navigation.navigate('ForgetPassword')}
+          style={[fontStyle.helperText, styles.forgetText]}
+        >
           Forget Password?
         </Text>
+        {error.length > 0 && (
+          <Text style={[fontStyle.errorText, styles.error]}>{error}</Text>
+        )}
         <Button
           title="LOGIN"
           buttonContainerStyle={styles.buttonContainer}
@@ -95,5 +117,12 @@ const styles = StyleSheet.create({
   header: {
     textAlign: 'center',
     marginTop: 8,
+  },
+  error: {
+    marginVertical: 8,
+    textAlign: 'center',
+  },
+  forgetText: {
+    marginBottom: 8,
   },
 });

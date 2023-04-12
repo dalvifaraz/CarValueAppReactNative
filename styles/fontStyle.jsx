@@ -30,6 +30,13 @@ export const fontStyle = StyleSheet.create({
     lineHeight: 18,
     color: colors.textSecondary,
   },
+  errorText: {
+    fontSize: 16,
+    fontFamily: 'System',
+    fontWeight: '500',
+    lineHeight: 18,
+    color: 'red',
+  },
   h1: {
     fontSize: 20,
     fontFamily: 'System',
