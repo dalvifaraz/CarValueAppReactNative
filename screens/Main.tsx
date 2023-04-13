@@ -38,10 +38,12 @@ const Main = ({ navigation }) => {
     [hasUnsavedChanges, navigation]
   );
 
+  const handleSignOut = () => {};
+
   return (
     <View style={styles.container}>
       <Button
-        title="Primary"
+        title="SIGN OUT (PRIMARY)"
         buttonContainerStyle={{ marginVertical: 8 }}
         handleOnPress={() => navigation.navigate('UserLogin')}
       />

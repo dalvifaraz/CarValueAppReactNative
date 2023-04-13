@@ -29,7 +29,7 @@ const UserLogin = ({ navigation }) => {
   };
 
   const handleSignUp = () => {
-    // navigation.navigate('ForgetPassword');
+    navigation.navigate('UserSignup');
   };
 
   return (
@@ -72,16 +72,19 @@ const UserLogin = ({ navigation }) => {
         />
         <Button
           title="SIGNIN - GOOGLE"
+          disable
           buttonContainerStyle={styles.buttonContainer}
           handleOnPress={handleSignUp}
         />
         <Button
           title="SIGNIN - LINKEDIN"
+          disable
           buttonContainerStyle={styles.buttonContainer}
           handleOnPress={handleSignUp}
         />
         <Button
           title="SIGNIN - FACEBOOK"
+          disable
           buttonContainerStyle={styles.buttonContainer}
           handleOnPress={handleSignUp}
         />
